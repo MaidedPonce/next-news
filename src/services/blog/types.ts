@@ -74,3 +74,23 @@ export interface PostInterface {
     }>
   }
 }
+
+interface Link {
+  embeddable?: boolean
+  href: string
+}
+
+interface Links {
+  self: Link[]
+  about: Link[]
+  collection: Link[]
+}
+
+export interface SearchResult {
+  id: number
+  title: string
+  url: string
+  type: string
+  subtype: string
+  _links: Links
+}

@@ -1,8 +1,9 @@
 import React from 'react'
+import ComboboxComponent from './ComboBox'
 
 const Cover = () => {
   return (
-    <section className='md:min-h-[50vh] justify-center flex-col flex items-start gap-6 p-8 lg:min-h-[70vh] bg-main bg-cover bg-center min-h-44 h-auto sm:min-h-56 w-auto m-4 rounded-md'>
+    <section className='md:min-h-[50vh] relative justify-center flex-col flex items-start gap-6 p-8 lg:min-h-[70vh] bg-main bg-cover bg-center min-h-44 h-auto sm:min-h-56 w-auto m-4 rounded-md'>
       <h1 className='uppercase flex items-center w-full text-white text-lg sm:text-2xl md:text-5xl font-bold'>
         Fernanda&nbsp;
         <svg
@@ -16,11 +17,12 @@ const Cover = () => {
         </svg>
         &nbsp;Familiar
       </h1>
-      <input
+      {/* <input
         type='text'
-        className='rounded-full pl-5 max-w-96 w-full h-10'
+        className='rounded-full h-8 w-[40%] pl-5 max-w-96 md:w-full md:h-10 focus:outline-none focus:ring-2 focus:ring-brand focus:shadow-brand focus:shadow'
         placeholder='Buscar...'
-      />
+      /> */}
+      <ComboboxComponent posts={[]} />
     </section>
   )
 }

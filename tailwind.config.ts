@@ -16,6 +16,7 @@ const config: Config = {
       },
       colors: {
         brand: 'hsl(var(--brand))',
+        'brand-secondary': 'hsl(var(--brand-secondary))',
       },
     },
   },
