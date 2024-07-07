@@ -1,9 +1,8 @@
 import { getAuthorById } from 'app/services/author/get-by-id'
 import { AuthorProps } from 'app/services/author/types'
 import { PostInterface } from 'app/services/blog/types'
-import { parseISO } from 'date-fns'
+import { getFormattedDate } from 'app/utils/formated-date'
 import Image from 'next/image'
-import { format } from 'date-fns'
 import React from 'react'
 
 interface PostProps {
@@ -16,50 +15,77 @@ const getAuthor = async (
   const segments = article._links.author[0].href.split('/')
   const id = segments && segments[segments.length - 1]
   const author = await getAuthorById(id)
-  console.log(author)
   return author
 }
 
-const getFormattedDate = (date: string) => {
-  const parse = parseISO(date)
-  const formattedDate = format(parse, 'MMM d, yyyy')
-  return formattedDate
+const divideContent = (content: string) => {
+  const paragraphs = content.split('</p>')
+  const midIndex = Math.floor(paragraphs.length / 2)
+  const firstHalf = paragraphs.slice(0, midIndex).join('</p>')
+  const secondHalf = paragraphs.slice(midIndex).join('</p>')
+  return { firstHalf, secondHalf }
 }
 
 const Post = async ({ post }: PostProps) => {
   const authorInfo = post !== undefined && (await getAuthor(post))
-  console.log(post?.date, post?.modified)
+
   return (
     <>
+      <div className='bg-custom-gradient h-40 w-full' />
       {post !== undefined ? (
-        <section className='max-w-5xl p-8'>
-          <h1 className='text-xl font-bold my-6'>{post.title.rendered}</h1>
+        <section className='max-w-5xl p-8 m-auto'>
+          <h1 className='text-3xl md:text-5xl text-pretty font-bold text-center my-6'>
+            {post.title.rendered}
+          </h1>
           {authorInfo && (
-            <div className='flex gap-5 h-auto'>
-              <Image
-                src={authorInfo.avatar_urls['24']}
-                alt={authorInfo.name}
-                width={48}
-                height={48}
-                className='rounded-full h-fit'
-              />
-              <div className='flex flex-col justify-between items-start'>
-                <span>{authorInfo?.name}</span>
-                <div className='flex flex-row'>
-                  <span>{getFormattedDate(post.date)}</span>&nbsp;
-                  <span>
-                    Última modificación {getFormattedDate(post.modified)}
-                  </span>
+            <>
+              <div className='flex gap-5 h-auto font-medium w-full justify-center'>
+                <Image
+                  src={authorInfo.avatar_urls['24']}
+                  alt={authorInfo.name}
+                  width={48}
+                  height={48}
+                  className='rounded-full h-fit'
+                />
+                <div className='flex flex-col justify-between items-start'>
+                  <span>{authorInfo?.name}</span>
+                  <div className='flex flex-row'>
+                    <span>
+                      Última modificación {getFormattedDate(post.modified)}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+              <div className='border-b border-solid border-gray-300 my-8 w-full h-1' />
+            </>
           )}
-          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          <article
+            id='post-content'
+            className='my-10 text-pretty text-base leading-8'
+            dangerouslySetInnerHTML={{
+              __html: divideContent(post.content.rendered).firstHalf,
+            }}
+          />
+          <figure className='relative w-full h-36 md:h-96'>
+            <Image
+              src={post.jetpack_featured_media_url}
+              alt={post.title.rendered}
+              fill
+              className='object-contain'
+            />
+          </figure>
+          <article
+            id='post-content'
+            className='my-10 text-pretty text-base leading-8'
+            dangerouslySetInnerHTML={{
+              __html: divideContent(post.content.rendered).secondHalf,
+            }}
+          />
         </section>
       ) : (
-        <div>
+        <section className='min-h-screen'>
           <h1>Post not found</h1>
-        </div>
+        </section>
       )}
     </>
   )

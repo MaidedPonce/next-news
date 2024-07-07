@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'custom-gradient':
+          'linear-gradient(59deg, rgba(244,63,63,1) 0%, rgba(166,17,17,1) 35%, rgba(17,39,81,1) 100%)',
+
         main: "url('/backgrounds/bg-periodista-de-vida.jpeg')",
       },
       colors: {
