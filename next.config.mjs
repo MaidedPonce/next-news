@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['fernandafamiliar.soy'],
+        domains: ['fernandafamiliar.soy', 'secure.gravatar.com'],
       },
 };
 
