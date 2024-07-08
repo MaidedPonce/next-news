@@ -24,6 +24,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Head>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${idTagManager}`}
+            height='0'
+            width='0'
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <meta
           name='robots'
           content='index, follow'
