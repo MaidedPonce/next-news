@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 import TanStack from 'app/components/Providers/TanStack'
+import { GoogleTagManager } from '@next/third-parties/google'
 import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,10 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <script
-        src={`https://www.googletagmanager.com/gtm.js?id=${idTagManager}`}
-        async
-      ></script>
       <Head>
         <meta
           name='robots'
@@ -43,14 +40,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <TanStack>{children}</TanStack>
       </body>
-      <noscript>
-        <iframe
-          src={`https://www.googletagmanager.com/ns.html?id=${idTagManager}`}
-          height='0'
-          width='0'
-          style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
-      </noscript>
+      <GoogleTagManager gtmId={idTagManager} />
     </html>
   )
 }
