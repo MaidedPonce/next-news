@@ -20,7 +20,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  console.log(idTagManager)
   return (
     <html lang='en'>
       <Head>

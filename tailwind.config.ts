@@ -18,6 +18,15 @@ const config: Config = {
         brand: 'hsl(var(--brand))',
         'brand-secondary': 'hsl(var(--brand-secondary))',
       },
+      animation: {
+        'color-pulse': 'colorPulse 2s infinite',
+      },
+      keyframes: {
+        colorPulse: {
+          '0%, 100%': { fill: 'hsl(var(--brand-secondary))' }, // Azul
+          '50%': { fill: 'hsl(var(--brand))' }, // Rojo
+        },
+      },
     },
   },
   plugins: [],
