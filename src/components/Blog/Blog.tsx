@@ -11,7 +11,7 @@ const Blog = ({ results }: BlogProps) => {
   return (
     <>
       <Cover />
-      <section className='m-4'>
+      <section className='my-4 mx-auto max-w-7xl	'>
         <h1 className='text-brand text-4xl font-bold mb-8 mt-8'>
           Noticias recientes
         </h1>

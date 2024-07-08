@@ -4,6 +4,7 @@ import './globals.css'
 import React from 'react'
 import TanStack from 'app/components/Providers/TanStack'
 import { GoogleTagManager } from '@next/third-parties/google'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,17 +20,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  console.log(idTagManager)
   return (
     <html lang='en'>
-      <GoogleTagManager gtmId={idTagManager} />
-      <noscript>
-        <iframe
-          src={`https://www.googletagmanager.com/ns.html?id=${idTagManager}`}
-          height='0'
-          width='0'
-          style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
-      </noscript>
+      <Head>
+        <GoogleTagManager gtmId={idTagManager} />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${idTagManager}`}
+            height='0'
+            width='0'
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+      </Head>
       <body className={inter.className}>
         <TanStack>{children}</TanStack>
       </body>

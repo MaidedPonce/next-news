@@ -19,7 +19,6 @@ const Pagination = ({ page, prevPage, nextPage }: PaginationProps) => {
       </button>
       <button
         onClick={nextPage}
-        disabled={page === 10}
         className='bg-brand disabled:bg-brand/20 rounded-full w-12 flex items-center justify-center h-12 p-4 text-white font-bold'
       >
         +

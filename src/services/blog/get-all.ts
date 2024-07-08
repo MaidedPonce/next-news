@@ -15,7 +15,7 @@ async function getPosts({
     console.log(error)
   }
 
-  return undefined
+  return []
 }
 
 export { getPosts }

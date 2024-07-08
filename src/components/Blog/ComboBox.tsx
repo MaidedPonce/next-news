@@ -34,7 +34,7 @@ const ComboboxComponent = ({ posts }: ComboboxProps) => {
         })
 
   return (
-    <div className='w-[40%] max-w-96 md:w-full pt-20'>
+    <div className='w-[40%] max-w-96 md:w-full md:pt-20'>
       <Combobox
         value={selectedArticle}
         onChange={(value: PostInterface) => setSelectedArticle(value)}

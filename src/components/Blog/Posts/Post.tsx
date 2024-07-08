@@ -72,6 +72,7 @@ const Post = async ({ post }: PostProps) => {
               alt={post.title.rendered}
               fill
               className='object-contain'
+              sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 1024px'
             />
           </figure>
           <article
