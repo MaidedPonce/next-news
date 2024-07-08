@@ -25,7 +25,7 @@ const Cover = () => {
           </svg>
           &nbsp;Familiar
         </h1>
-        <div className='w-[40%] max-w-96 md:w-full md:pt-20'>
+        <div className='w-full max-w-96 md:w-full md:pt-20'>
           <ComboboxComponent />
         </div>
       </m.section>
