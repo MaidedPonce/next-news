@@ -14,7 +14,7 @@ const getPostByIdFn = async (id: string) => {
   return post
 }
 
-export async function generateMedata({
+export async function generateMetada({
   params: { id },
 }: PostProps): Promise<Metadata> {
   const post = await getPostByIdFn(id)

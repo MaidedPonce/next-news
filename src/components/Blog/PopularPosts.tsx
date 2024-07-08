@@ -19,12 +19,19 @@ const PopularPost = ({ popular }: PopularPostProps) => {
               <div
                 className='flex gap-2 items-center'
                 key={post.title.rendered}
+                id='badge'
               >
                 <div className='rounded-full p-4 h-4 w-4 flex items-center justify-center bg-transparent border-brand-secondary border-solid border text-brand-secondary'>
                   {index}
                 </div>
                 <h1 className='font-bold hover:cursor-pointer'>
-                  <Link href={`/${post.id}`}> {post.title.rendered}</Link>
+                  <Link
+                    href={`/${post.id}`}
+                    className='hover:text-brand'
+                  >
+                    {' '}
+                    {post.title.rendered}
+                  </Link>
                 </h1>
               </div>
             ))}

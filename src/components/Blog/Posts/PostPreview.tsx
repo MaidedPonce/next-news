@@ -20,12 +20,19 @@ const PostPreview = ({ post, index }: PreviewProps) => {
           loading={index === 0 ? 'eager' : 'lazy'}
           sizes='(max-width: 640px) 100vw, 50vw'
         />
-        <button className='m-4 text-sm rounded-full bg-white p-[0.30rem] z-10'>
-          Ver más...
+        <button className='m-4 text-sm/5  rounded-full bg-white p-[0.30rem] z-10'>
+          <span className='hover:underline hover:decoration-solid'>
+            Ver más...
+          </span>
         </button>
       </figure>
-      <div>
-        <h1 className='font-bold text-xl'>{post?.title.rendered}</h1>
+      <div
+        id='text-preview'
+        className='hover:cursor-pointer'
+      >
+        <h1 className='font-bold text-xl hover:text-brand'>
+          {post?.title.rendered}
+        </h1>
         <div
           dangerouslySetInnerHTML={{
             __html: content.trimEnd() + '...',

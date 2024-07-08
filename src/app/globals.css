@@ -38,3 +38,12 @@ body {
 #post-content p {
   margin: 2.5rem 0;
 }
+
+#text-preview:hover div {
+  font-weight: 600;
+}
+
+#badge:hover div {
+  border-color: hsl(var(--brand));
+  color: hsl(var(--brand))
+}

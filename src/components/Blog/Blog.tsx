@@ -13,7 +13,7 @@ const Blog = ({ results, popular }: BlogProps) => {
   return (
     <>
       <Cover />
-      <section className='my-4 mx-4 flex flex-col lg:flex-row gap-9 2xl:mx-auto max-w-7xl'>
+      <section className='my-4 mx-4 flex flex-col lg:flex-row gap-9 max-w-[1536px] m-auto'>
         <div>
           <h1 className='text-brand text-2xl text-center lg:text-start font-bold mb-8 mt-8'>
             Noticias recientes
