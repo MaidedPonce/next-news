@@ -38,9 +38,8 @@ const ComboboxComponent = () => {
       setResults(searchedData)
     }
   }, [data])
-  console.log(isFetching)
   return (
-    <div className='w-[40%] max-w-96 md:w-full md:pt-20'>
+    <div className=''>
       <Combobox
         value={selectedArticle}
         onChange={(value: PostInterface[] | null) =>

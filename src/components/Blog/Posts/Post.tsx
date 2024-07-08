@@ -4,6 +4,7 @@ import { PostInterface } from 'app/services/blog/types'
 import { getFormattedDate } from 'app/utils/formated-date'
 import Image from 'next/image'
 import React from 'react'
+import CoverPost from './ContentPost'
 
 interface PostProps {
   post: PostInterface | undefined
@@ -31,7 +32,7 @@ const Post = async ({ post }: PostProps) => {
 
   return (
     <>
-      <div className='bg-custom-gradient h-40 w-full' />
+      <CoverPost />
       {post !== undefined ? (
         <section className='max-w-5xl p-8 m-auto'>
           <h1 className='text-3xl md:text-5xl text-pretty font-bold text-center my-6'>
@@ -84,8 +85,9 @@ const Post = async ({ post }: PostProps) => {
           />
         </section>
       ) : (
-        <section className='min-h-screen'>
-          <h1>Post not found</h1>
+        <section className='min-h-screen flex flex-col justify-center items-center'>
+          <h1 className='font-bold text-4xl'>404</h1>
+          <h1 className='text-xl'>Página no encontrada:(</h1>
         </section>
       )}
     </>

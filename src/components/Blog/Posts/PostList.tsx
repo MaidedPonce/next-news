@@ -38,7 +38,7 @@ const PostList = ({ posts }: { posts: PostInterface[] }) => {
   return (
     <section className='flex flex-col'>
       {results && (
-        <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lx:grid-cols-4 gap-8'>
+        <ul className='grid grid-cols-1 md:grid-cols-2 min-[1400px]:grid-cols-3 lx:grid-cols-4 gap-8'>
           {results.map((post: PostInterface, index) => (
             <PostPreview
               key={post.id}

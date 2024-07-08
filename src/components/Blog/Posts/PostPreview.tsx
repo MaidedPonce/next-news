@@ -1,5 +1,6 @@
 import { PostInterface } from 'app/services/blog/types'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 interface PreviewProps {
@@ -17,13 +18,17 @@ const PostPreview = ({ post, index }: PreviewProps) => {
           src={post?.jetpack_featured_media_url}
           alt='Imagen de la noticia'
           fill
+          className='aspect-square'
           loading={index === 0 ? 'eager' : 'lazy'}
           sizes='(max-width: 640px) 100vw, 50vw'
         />
-        <button className='m-4 text-sm/5  rounded-full bg-white p-[0.30rem] z-10'>
-          <span className='hover:underline hover:decoration-solid'>
+        <button className='m-4 text-sm/5 rounded-full bg-white px-3 py-2 z-10'>
+          <Link
+            href={`/${post.id}`}
+            className='hover:underline hover:decoration-solid'
+          >
             Ver más...
-          </span>
+          </Link>
         </button>
       </figure>
       <div
