@@ -22,7 +22,7 @@ const Cover = () => {
         className='rounded-full h-8 w-[40%] pl-5 max-w-96 md:w-full md:h-10 focus:outline-none focus:ring-2 focus:ring-brand focus:shadow-brand focus:shadow'
         placeholder='Buscar...'
       /> */}
-      <ComboboxComponent posts={[]} />
+      <ComboboxComponent />
     </section>
   )
 }
