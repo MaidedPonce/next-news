@@ -24,15 +24,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Head>
-        <GoogleTagManager gtmId={idTagManager} />
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${idTagManager}`}
-            height='0'
-            width='0'
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
         <meta
           name='robots'
           content='index, follow'
@@ -48,6 +39,7 @@ export default function RootLayout({
       </Head>
       <body className={inter.className}>
         <TanStack>{children}</TanStack>
+        <GoogleTagManager gtmId={idTagManager} />
       </body>
     </html>
   )
