@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 import TanStack from 'app/components/Providers/TanStack'
-import { GoogleTagManager } from '@next/third-parties/google'
 import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
